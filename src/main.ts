@@ -44,7 +44,7 @@ console.log('===================================================================
 const basketModel = new Basket()
 
 // получение списка товаров корзины
-console.log('Массив товаров из корзины: ', basketModel.getItems());
+console.log('Массив товаров из корзины: ', {...basketModel.getItems()});
 
 // добавление в корзину
 basketModel.append(apiProducts.items[0]);
@@ -52,7 +52,7 @@ basketModel.append(apiProducts.items[1]);
 basketModel.append(apiProducts.items[2]);
 
 // получение списка товаров корзины
-console.log('Массив товаров из корзины после добавления: ', basketModel.getItems());
+console.log('Массив товаров из корзины после добавления: ', {...basketModel.getItems()});
 
 // проверка наличия товара в корзине
 console.log('Товар', apiProducts.items[1].title, 'находится в корзине:', basketModel.contains(apiProducts.items[1]) ? 'Да' : 'Нет');
@@ -63,7 +63,7 @@ basketModel.remove(apiProducts.items[1]);   // существующий в ко�
 basketModel.remove(apiProducts.items[3]);   // несуществующий в корзине товар
 
 // получение списка товаров корзины
-console.log('Массив товаров из корзины после удаления: ', basketModel.getItems());
+console.log('Массив товаров из корзины после удаления: ', {...basketModel.getItems()});
 
 // общая стоимость и количество товаров корзины
 console.log('Общая стоимость всех товаров корзины: ', basketModel.getTotalCost());
