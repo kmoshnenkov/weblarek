@@ -20,11 +20,7 @@ type OrderErrorResponse = {
 export type ProductResponse = ProductSuccessResponse;
 export type OrderResponse = OrderSuccessResponse | OrderErrorResponse;
 
-export type OrderRequest = {
-    payment: string;
-    email: string;
-    phone: string;
-    address: string;
+export interface OrderRequest extends IBuyer {
     total: number;
     items: string[];
 }

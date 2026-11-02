@@ -13,28 +13,12 @@ export class Buyer {
         }
     }
 
-    setPayment(payment: TPayment) {
-        this._info.payment = payment;
-    }
-
-    setEmail(email: string) {
-        this._info.email = email;
-    }
-
-    setPhone(phone: string) {
-        this._info.phone = phone;
-    }
-
-    setAddress(address: string) {
-        this._info.address = address;
-    }
-
-    setInfo(buyer: IBuyer) {
-        this._info = { ...buyer }
+    setInfo(buyer: Partial<IBuyer>) {
+        this._info = { ...this._info, ...buyer };
     }
 
     getInfo(): IBuyer {
-        return { ...this._info }
+        return { ...this._info };
     }
 
     clear() {

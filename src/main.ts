@@ -94,19 +94,19 @@ buyerModel.clear();
 console.log('Валидация (после очистки данных):', buyerModel.validate());
 
 console.log('Сохранение адреса:', userInfo.address);
-buyerModel.setAddress(userInfo.address);
+buyerModel.setInfo({address: userInfo.address});
 console.log('Валидация (после сохранения address):', buyerModel.validate());
 
 console.log('Сохранение электронной почты:', userInfo.email);
-buyerModel.setEmail(userInfo.email);
+buyerModel.setInfo({email: userInfo.email});
 console.log('Валидация (после сохранения email):', buyerModel.validate());
 
 console.log('Сохранение номера телефона:', userInfo.phone);
-buyerModel.setPhone(userInfo.phone);
+buyerModel.setInfo({phone: userInfo.phone});
 console.log('Валидация (после сохранения phone):', buyerModel.validate());
 
 console.log('Сохранение вида оплаты:', userInfo.payment);
-buyerModel.setPayment(userInfo.payment);
+buyerModel.setInfo({payment: userInfo.payment});
 console.log('Валидация (после сохранения payment):', buyerModel.validate());
 
 
