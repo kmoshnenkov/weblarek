@@ -22,7 +22,9 @@ export class Products {
     }
 
     setSelected(product: IProduct) {
-        this._selected = product;
+        if (this._products.includes(product)) {
+            this._selected = product;
+        }
     }
 
     getSelected(): IProduct | undefined {

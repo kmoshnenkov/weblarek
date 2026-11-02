@@ -30,35 +30,35 @@ export class Buyer {
     }
 
     setInfo(buyer: IBuyer) {
-        this._info = {...buyer}
+        this._info = { ...buyer }
     }
 
     getInfo(): IBuyer {
-        return {...this._info}
+        return { ...this._info }
     }
 
     clear() {
-         this._info = {
+        this._info = {
             payment: undefined,
             email: '',
             phone: '',
             address: ''
-        }     
+        }
     }
 
     validate(): object {
         const result = {}
         if (!this._info.payment) {
-            Object.assign(result, {payment: 'Выберите вил оплаты'})
+            Object.assign(result, { payment: 'Выберите вил оплаты' })
         }
         if (this._info.email.length === 0) {
-            Object.assign(result, {email: 'Укажите электронный адрес'})
+            Object.assign(result, { email: 'Укажите электронный адрес' })
         }
         if (this._info.phone.length === 0) {
-            Object.assign(result, {phone: 'Укажите номер телефона'})
+            Object.assign(result, { phone: 'Укажите номер телефона' })
         }
         if (this._info.address.length === 0) {
-            Object.assign(result, {address: 'Укажите адрес доставки'})
+            Object.assign(result, { address: 'Укажите адрес доставки' })
         }
         return result;
     }
