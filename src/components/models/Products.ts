@@ -1,19 +1,19 @@
 import { IProduct } from "../../types";
 
 export class Products {
-    _products: IProduct[];
-    _selected: IProduct | undefined;
+    private _products: IProduct[];
+    private _selected: IProduct | null;
 
     constructor() {
         this._products = [];
-        this._selected = undefined;
+        this._selected = null;
     }
 
     setItems(items: IProduct[]) {
-        this._products = [...new Set<IProduct>(items)];
+        this._products = items;
     }
 
-    getItems(): readonly IProduct[] {
+    getItems(): IProduct[] {
         return this._products;
     }
 
@@ -22,12 +22,10 @@ export class Products {
     }
 
     setSelected(product: IProduct) {
-        if (this._products.includes(product)) {
-            this._selected = product;
-        }
+        this._selected = product;
     }
 
-    getSelected(): IProduct | undefined {
+    getSelected(): IProduct | null {
         return this._selected;
     }
 }

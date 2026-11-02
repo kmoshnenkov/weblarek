@@ -1,5 +1,7 @@
 export type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
-export type TPayment = 'CARD' | 'CASH' | undefined;
+export type TPayment = 'CARD' | 'CASH' | '';
+
+export type TErrors = Partial<Record<keyof IBuyer, string>>;
 
 type ProductSuccessResponse = {
     total: number;

@@ -6,7 +6,7 @@ import { Buyer } from './components/models/Buyer';
 import { apiProducts } from './utils/data';
 import { IBuyer } from './types';
 
-import { Loader } from './components/models/Loader';
+import { Loader } from './components/Loader';
 import { Api } from './components/base/Api';
 import { API_URL } from './utils/constants';
 
@@ -118,11 +118,13 @@ const loader = new Loader(api);
 
 // получение данных с сервера методом get
 console.log('Получение данных с сервера методом get');
-const products = await loader.get();
-
-// сохранение списка товаров в каталог
-console.log('Сохранение списка товаров в каталог');
-productsModel.setItems(products.items);
-
-// получение списка товаров из каталога
-console.log('Массив товаров из каталога: ', productsModel.getItems());
+loader.get()
+    .then((response) => {
+        // сохранение списка товаров в каталог
+        productsModel.setItems(response.items)
+        console.log('Каталог товаров с сервера: ', productsModel.getItems());
+    })
+    .catch((error) => {
+        // получение списка товаров из каталога
+        console.error('Ошибка при получении товаров с сервера: ', error);
+    })

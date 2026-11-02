@@ -1,13 +1,13 @@
 import { IProduct } from "../../types";
 
 export class Basket {
-    _products: IProduct[];
+    private _products: IProduct[];
 
     constructor() {
         this._products = [];
     }
 
-    getItems(): readonly IProduct[] {
+    getItems(): IProduct[] {
         return this._products;
     }
 

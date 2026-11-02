@@ -1,12 +1,12 @@
-import { IBuyer, TPayment } from "../../types";
+import { IBuyer, TPayment, TErrors } from "../../types";
 
 
 export class Buyer {
-    _info: IBuyer;
+    private _info: IBuyer;
 
     constructor() {
         this._info = {
-            payment: undefined,
+            payment: '',
             email: '',
             phone: '',
             address: ''
@@ -39,15 +39,15 @@ export class Buyer {
 
     clear() {
         this._info = {
-            payment: undefined,
+            payment: '',
             email: '',
             phone: '',
             address: ''
         }
     }
 
-    validate(): object {
-        const result = {}
+    validate(): TErrors {
+        const result: TErrors = {}
         if (!this._info.payment) {
             Object.assign(result, { payment: 'Выберите вил оплаты' })
         }
